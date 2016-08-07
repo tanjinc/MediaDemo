@@ -44,9 +44,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void playMusic(String musicPath) {
-        Intent intent = new Intent(MainActivity.this, MusicPlayerService.class);
+        Intent intent = new Intent(MainActivity.this, MusicPlayerActivity.class);
         intent.setData(Uri.parse(musicPath));
-        startService(intent);
+        startActivity(intent);
     }
 
 

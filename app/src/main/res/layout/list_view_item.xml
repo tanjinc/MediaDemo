@@ -9,6 +9,21 @@
         android:layout_height="wrap_content"
         android:textSize="14sp"/>
     <TextView
+        android:id="@+id/music_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/music_track"
+        android:textSize="10sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/music_width"
+        android:textSize="10sp"/>
+    <TextView
         android:id="@+id/music_path"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

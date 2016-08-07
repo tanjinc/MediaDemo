@@ -32,5 +32,17 @@
         android:id="@+id/music_list_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/controller_layout"></ListView>
+        android:layout_below="@id/controller_layout">
+
+    </ListView>
+
+    <LinearLayout
+        android:id="@+id/media_info"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </LinearLayout>
 </RelativeLayout>

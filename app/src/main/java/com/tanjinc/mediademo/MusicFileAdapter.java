@@ -62,6 +62,9 @@ public class MusicFileAdapter extends BaseAdapter {
 
             viewHolder.title = (TextView) convertView.findViewById(R.id.music_title);
             viewHolder.path = (TextView) convertView.findViewById(R.id.music_path);
+            viewHolder.size = (TextView) convertView.findViewById(R.id.music_size);
+            viewHolder.track = (TextView) convertView.findViewById(R.id.music_track);
+            viewHolder.width = (TextView) convertView.findViewById(R.id.music_width);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -80,7 +83,9 @@ public class MusicFileAdapter extends BaseAdapter {
             mMusicDataArrayList.clear();
             String[] projection = new String[]{
                     MediaStore.Audio.Media.TITLE,
-                    MediaStore.Audio.Media.DATA
+                    MediaStore.Audio.Media.DATA,
+                    MediaStore.Audio.Media.SIZE,
+                    MediaStore.Audio.Media.TRACK,
             };
 
             Cursor cursor = contentResolver.query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, projection,
@@ -91,8 +96,11 @@ public class MusicFileAdapter extends BaseAdapter {
                 while (cursor.moveToNext()) {
 
                     MusicData musicData = new MusicData();
-                    musicData.path = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DATA));
-                    musicData.title = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.TITLE));
+                    musicData.path = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
+                    musicData.title = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));
+                    musicData.size = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));
+                    musicData.track = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TRACK));
+//                    musicData.width = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.WIDTH));
                     mMusicDataArrayList.add(musicData);
                     cursor.moveToNext();
                 }
@@ -111,10 +119,16 @@ public class MusicFileAdapter extends BaseAdapter {
     class MusicData {
         String title;
         String path;
+        String track;
+        String size;
+        String width;
     }
 
     static class ViewHolder {
         TextView title;
         TextView path;
+        TextView track;
+        TextView size;
+        TextView width;
     }
 }
